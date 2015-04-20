@@ -12,40 +12,36 @@ public class MainApp extends Application {
     public void start(final Stage stage) throws Exception {
         stage.setTitle("Sprite Application");
         stage.setWidth(1024);
-        stage.setHeight(460);
+        stage.setHeight(400);
 
         animationPane = new AnimationPane();
         Scene scene = new Scene(animationPane);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        animationPane.setBackgroundImage("Halob.jpg");
+        halo=new Halo();
+        halo.setLayoutX(animationPane.getWidth()/2);
+        halo.setLayoutY(animationPane.getHeight() - 100);
+        halo.stand();
 
         animationPane.setOnKeyPressed(event -> keyPressed(event));
         animationPane.requestFocus();
-        animationPane.setBackgroundImage("Halob.jpg");
-
-        halo = new Halo();
         animationPane.add(halo);
 
-        halo.setLayoutX(animationPane.getWidth() / 2);
-        halo.setCenterY(animationPane.getHeight() - 120);
 
-        halo.stand();
+
     }
 
 
     private void keyPressed(KeyEvent event) {
         System.out.println(event.getCode().getName());
+        if (event.getCode().getName().equals("Right")){halo.walkRight();}
+        if(event.getCode().getName().equals("Left")){halo.walkLeft();}
+        if(event.getCode().getName().equals("Down")){halo.crouch();}
+        if(event.getCode().getName().equals("Up")){halo.stand();}
 
-        if (event.getCode().getName().equals("Left")) {
-            halo.walkLeft();
-        } else if (event.getCode().getName().equals("Right")){
-            halo.walkRight();
-        } else if(event.getCode().getName().equals("Down")){
-            halo.crouch();
-        }else {
-            halo.stand();
-        }
+
 
     }
 

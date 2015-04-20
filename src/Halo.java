@@ -51,7 +51,7 @@ public class Halo extends Sprite {
         flipHorizontally(true);
     }
     public void crouch(){
-        play("crouch", "standing");
+        play("crouch","standing");
         setSpeed(0);
     }
 }
