@@ -50,8 +50,8 @@ public class MainApp extends Application {
 
         if (event.getCode().getName().equals("A")){megaman.runleft();}
         if(event.getCode().getName().equals("D")){megaman.runright();}
-        if (event.getCode().getName().equals("W")){megaman.stand();}
-        if(event.getCode().getName().equals("S")){megaman.fistpump();}
+        if (event.getCode().getName().equals("S")){megaman.stand();}
+        if(event.getCode().getName().equals("W")){megaman.fistpump();}
 
 
 

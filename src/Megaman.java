@@ -25,9 +25,9 @@ public class Megaman extends Sprite {
             addFrame("running", 570, 21, 35, 36);
             addFrame("running",605,21,35,36);
 
-        createAnimation("fistpumping",70);
+        createAnimation("fistpumping",210);
         for (int i = 472; i <600 ; i+=31) {
-            addFrame("fistpumping",i,120,27,110);
+            addFrame("fistpumping",i,120,27,40);
         }
 
 
@@ -40,30 +40,52 @@ public class Megaman extends Sprite {
 public void stand(){
     play("standing");
     setSpeed(0);
-    //if(getAnimationName().equals("standing"))
 }
-
     public void runright(){
     play("running");
     setSpeed(3);
         setAngle(90);
         flipHorizontally(false);
-    //if(getAnimationName().equals("standing"))
 }
     public void runleft(){
         flipHorizontally(true);
         setAngle(270);
         play("running");
         setSpeed(3);
-        //if(getAnimationName().equals("standing"))
+    }
+    public void fistpump(){
+        if (isStanding()) {
+            setAngle(0);
+            setSpeed(3);
+            applyGravity(2);
+            play("fistpumping", "standing");
+        } else if (isRunningLeft()) {
+            setAngle(330);
+            setSpeed(3);
+            applyGravity(2);
+            play("fistpumping", "running");
+
+        } else if (isRunningRight()) {
+            setAngle(30);
+            setSpeed(3);
+            applyGravity(2);
+            play("fistpumping", "running");
+        }
+
+
+
     }
 
-    public void fistpump(){
-        System.out.print("flying activated");
+    public boolean isStanding() {
+        return getAnimationName().equals("standing");
+    }
 
-        setSpeed(0);
+    public boolean isRunningLeft() {
+        return getAnimationName().equals("running") && getAngle() == 270;
+    }
 
-        play("fistpumping","standing");
+    public boolean isRunningRight() {
+        return getAnimationName().equals("running") && getAngle() == 90;
     }
 
 
