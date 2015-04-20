@@ -7,6 +7,7 @@ import sprite.AnimationPane;
 public class MainApp extends Application {
     private AnimationPane animationPane;
     private Halo halo;
+    private Megaman megaman;
 
     @Override
     public void start(final Stage stage) throws Exception {
@@ -25,9 +26,15 @@ public class MainApp extends Application {
         halo.setLayoutY(animationPane.getHeight() - 100);
         halo.stand();
 
+        megaman= new Megaman();
+        megaman.setLayoutX(animationPane.getWidth()/2-50);
+        megaman.setLayoutY(animationPane.getHeight() - 60);
+        megaman.stand();
+
         animationPane.setOnKeyPressed(event -> keyPressed(event));
         animationPane.requestFocus();
         animationPane.add(halo);
+        animationPane.add(megaman);
 
 
 
@@ -40,6 +47,11 @@ public class MainApp extends Application {
         if(event.getCode().getName().equals("Left")){halo.walkLeft();}
         if(event.getCode().getName().equals("Down")){halo.crouch();}
         if(event.getCode().getName().equals("Up")){halo.stand();}
+
+        if (event.getCode().getName().equals("A")){megaman.runleft();}
+        if(event.getCode().getName().equals("D")){megaman.runright();}
+        if (event.getCode().getName().equals("W")){megaman.stand();}
+        if(event.getCode().getName().equals("S")){megaman.fistpump();}
 
 
 
