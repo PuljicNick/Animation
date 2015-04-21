@@ -24,7 +24,7 @@ public class Megaman extends Sprite {
             addFrame("running", 535, 21, 35, 36);
             addFrame("running", 570, 21, 35, 36);
             addFrame("running",605,21,35,36);
-
+//a little error from sprite sheet
         createAnimation("fistpumping",210);
         for (int i = 472; i <600 ; i+=31) {
             addFrame("fistpumping",i,120,27,40);
