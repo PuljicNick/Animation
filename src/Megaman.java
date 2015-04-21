@@ -63,13 +63,13 @@ public void stand(){
             setAngle(330);
             setSpeed(3);
             applyGravity(2);
-            play("fistpumping", "running");
+            play("fistpumping", "standing");
 
         } else if (isRunningRight()) {
             setAngle(30);
             setSpeed(3);
             applyGravity(2);
-            play("fistpumping", "running");
+            play("fistpumping", "standing");
         }
 
 
